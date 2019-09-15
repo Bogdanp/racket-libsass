@@ -4,14 +4,17 @@ on: [push]
 jobs:
   build:
     name: Build on Linux
-    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        os: [macOS-10.14, ubuntu-18.04]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Build
-        run: ci/build-linux-x86-64.sh
+        run: ci/build.sh ${{ matrix.os }}
       - name: Commit and Push
-        run: >-
+        run: |
           git add artifacts
           git commit -am 'ci: update linux artifacts'
           git push origin master
