@@ -10,3 +10,8 @@ jobs:
         uses: actions/checkout@v1
       - name: Build
         run: ci/build-linux-x86-64.sh
+      - name: Commit and Push
+        run: >-
+          git add artifacts
+          git commit -am 'ci: update linux artifacts'
+          git push origin master
