@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   build:
-    name: Build on Linux
+    name: Build on ${{ matrix.os }}
     strategy:
       matrix:
         os: [macOS-10.14, ubuntu-18.04]
