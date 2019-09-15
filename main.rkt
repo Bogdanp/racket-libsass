@@ -12,7 +12,7 @@
 
 (define libsass-path
   (match (cons (system-type) (system-type 'word))
-    [(cons 'linux 64)
+    [(cons 'unix 64)
      (build-path artifacts "linux-x86-64" "lib" "libsass")]
 
     [(cons 'macosx 64)
