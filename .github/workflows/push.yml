@@ -16,5 +16,5 @@ jobs:
       - name: Commit and Push
         run: |
           git add artifacts
-          git commit -am 'ci: update linux artifacts'
+          git commit -am 'ci: update ${{ matrix.os }} artifacts'
           git push origin master
