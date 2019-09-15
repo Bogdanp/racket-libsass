@@ -1,0 +1,12 @@
+name: Build artifacts
+on: [push]
+
+jobs:
+  build:
+    name: Build on Linux
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Build
+        run: ci/build-linux-x86-64.sh
