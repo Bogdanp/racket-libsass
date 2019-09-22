@@ -2,6 +2,7 @@
 
 set -euxo pipefail
 
+git submodule update --init
 pushd libsass
 git reset --hard HEAD
 autoreconf --force --install
