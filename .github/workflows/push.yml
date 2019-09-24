@@ -28,7 +28,12 @@ jobs:
     runs-on: windows-2016
     steps:
       - uses: actions/checkout@master
+      - run: bin/build-win32-i386.cmd
       - run: bin/build-win32-x86-64.cmd
+      - uses: actions/upload-artifact@v1
+        with:
+          name: win32-i386
+          path: artifacts/win32-i386
       - uses: actions/upload-artifact@v1
         with:
           name: win32-x86-64
@@ -48,6 +53,10 @@ jobs:
         with:
           name: macos-x86-64
           path: artifacts/macos-x86-64
+      - uses: actions/download-artifact@v1
+        with:
+          name: win32-i386
+          path: artifacts/win32-i386
       - uses: actions/download-artifact@v1
         with:
           name: win32-x86-64
