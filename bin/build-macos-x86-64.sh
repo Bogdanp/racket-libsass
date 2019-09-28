@@ -5,7 +5,6 @@ set -euxo pipefail
 git submodule update --init
 brew install automake libtool
 pushd libsass
-git reset --hard HEAD
 autoreconf --force --install
 ./configure \
     --disable-static \
