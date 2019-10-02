@@ -3,3 +3,4 @@
 (define version "3.6.1")
 (define deps '("base"))
 (define copy-foreign-libs '("libsass.dylib"))
+(define install-platform #rx"x86_64-macosx")
