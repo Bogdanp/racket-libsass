@@ -3,7 +3,7 @@ name: build
 jobs:
   build-linux:
     name: build on Ubuntu
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
       - run: bin/build-linux-x86-64.sh
@@ -14,7 +14,7 @@ jobs:
 
   build-macos:
     name: build on macOS
-    runs-on: macOS-10.14
+    runs-on: macOS-10.15
     steps:
       - uses: actions/checkout@master
       - run: bin/build-macos-x86-64.sh
@@ -25,7 +25,7 @@ jobs:
 
   build-windows:
     name: build on Windows
-    runs-on: windows-2016
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@master
       - run: bin/build-win32-i386.cmd
@@ -42,7 +42,7 @@ jobs:
   deploy:
     name: deploy
     needs: [build-linux, build-macos, build-windows]
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
       - uses: actions/download-artifact@v1
